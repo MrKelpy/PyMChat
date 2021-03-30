@@ -81,6 +81,7 @@ Window_Name: Can be altered, defines the title of the window that the Minecraft 
 
 
 ### Special Thanks
-
-To SafeSurvival, for being the testing ground for this project.\n
+```
+To SafeSurvival, for being the testing ground for this project.
 To Shaztopia, SafeSurvival's Owner, for allowing me to test it there.
+```
