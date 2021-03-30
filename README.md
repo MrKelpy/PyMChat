@@ -48,25 +48,34 @@ A MinecraftWindowNotFoundError will be thrown if a Minecraft Window isn't found.
 
 Properties:
   > content
+ 
   > id
+ 
   > date
 
 Content Property: Holds the content of a message. It represents exactly what the user sees, without colours.
+
 ID Property: An unique number for the message, for the current session. This helps distinguishing between messages effectively.
+
 Date Property: The date of when the message was sent. It follows the format from the `latest.log` file's date.
 
 ## Chat Object
 
 Properties:
   > default_logs_path
+ 
   > chat_key
+ 
   > window_name
 
 Methods:
   > get_history | Limit defaulted to 100, gets the chat messages history
+
   > send | Sends a message to the chat.
 
 Default_Logs_Path Property: Can be altered, defines the location of the latest.log file. Defaults to `\.minecraft\logs\latest.log`
+
 Chat_Key Property: Can be altered, defines the key that triggers the text chat on minecraft. Defaults to 'T'.
+
 Window_Name: Can be altered, defines the title of the window that the Minecraft Client launches as. Defaults to "Minecraft"
 
