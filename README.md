@@ -14,7 +14,7 @@ from pymchat.chat import Chat
 
 chat = Chat()
 
-# Limit in get_history is defaulted to 100.
+# Limit in get_history is defaulted to 50**50.
 message_list = chat.get_history(limit=10)
 
 for message in message_list:
@@ -69,7 +69,7 @@ Properties:
   > window_name
 
 Methods:
-  > get_history | Limit defaulted to 100, gets the chat messages history
+  > get_history | Limit defaulted to 50**50, gets the chat messages history
 
   > send | Sends a message to the chat.
 
