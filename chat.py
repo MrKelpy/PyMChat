@@ -1,10 +1,21 @@
+# coding: utf-8
+
+# Created at 30/03/2021
+__license__ = "GNU General Public License v3.0"
+__author__ = "Alexandre Silva // MrKelpy"
+__copyright__ = "© Alexandre Silva 2021"
+
+# Builtin imports
 import time
 import os
 
+# Third Party Imports
 import pygetwindow
 import keyboard
 
+# Local Application Imports
 from .exceptions import *
+from .message import *
 
 
 def parse_chat_messages(history: list, limit: int):
@@ -60,8 +71,9 @@ class Chat:
 
         self.default_logs_path = os.path.join(os.getenv("APPDATA"), ".minecraft", "logs", "latest.log")
         self._ensure_log_existance()
-        self.chat_key = "t"
-        self.window_name = "Minecraft"
+        self._chat_key = "t"
+        self._window_searchname = "Minecraft"
+
 
     def _ensure_log_existance(self):
 
@@ -70,24 +82,26 @@ class Chat:
 
         return True
 
+
     def _get_minecraft_window(self):
-
         """
-        Gets the window accordingly to the self.window_name property.
-        :return: Window or None
+        Searches for a Minecraft Window, and returns it.
+        :return: xWindow
         """
 
-        if self.window_name in pygetwindow.getActiveWindowTitle():
+        # Checks if the MC window is currently active. Returns it if so
+        if pygetwindow.getActiveWindowTitle().startswith(self._window_searchname):
             return pygetwindow.getActiveWindow()
 
+        # Loops through all the windows and returns the MC one, based on their name.
         for window in pygetwindow.getAllWindows():
-            if self.window_name in window.title:
+            if window.title.startswith(self._window_searchname):
                 return window
 
-        raise MinecraftWindowNotFoundError(f"Could not find a Minecraft Window with the title containing \"{self.window_name}\"")
+        raise MinecraftWindowNotFoundError(f"Could not find a Minecraft Window with the title containing \"{self._window_searchname}\"")
+
 
     def get_history(self, limit: int = 50**50):
-
         """
         :param limit: Limitation on how back the chat history goes
         :return: list or None
@@ -99,8 +113,8 @@ class Chat:
         message_list = parse_chat_messages(log_history, limit)
         return message_list
 
-    def send(self, message: str):
 
+    def send(self, message: str):
         """
         Sends a message in chat. Checks for a window with minecraft open on screen,
         if none is to be seen, finds and focuses on one.
@@ -118,7 +132,7 @@ class Chat:
             keyboard.send("ESC")
 
         # Handles message sending in chat.
-        keyboard.send(self.chat_key)
+        keyboard.send(self._chat_key)
         time.sleep(0.1)
         keyboard.write(message)
         keyboard.send("RETURN")
