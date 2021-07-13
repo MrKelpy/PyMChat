@@ -64,9 +64,9 @@ Date Property: The date of when the message was sent. It follows the format from
 Properties:
   > default_logs_path
  
-  > chat_key
+  > _chat_key
  
-  > window_name
+  > _window_searchname
 
 Methods:
   > get_history | Limit defaulted to 50**50, gets the chat messages history
@@ -75,9 +75,9 @@ Methods:
 
 Default_Logs_Path Property: Can be altered, defines the location of the latest.log file. Defaults to `\.minecraft\logs\latest.log`
 
-Chat_Key Property: Can be altered, defines the key that triggers the text chat on minecraft. Defaults to 'T'.
+_Chat_Key Property: Can be altered, defines the key that triggers the text chat on minecraft. Defaults to 'T'.
 
-Window_Name: Can be altered, defines the title of the window that the Minecraft Client launches as. Defaults to "Minecraft"
+_Window_SearchName: Can be altered, defines the title of the window that the Minecraft Client launches as. Defaults to "Minecraft"
 
 
 ### Special Thanks
