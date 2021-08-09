@@ -1,5 +1,6 @@
 # PyMChat
 A Simple and easy-to-use Python Library to read and interact with Minecraft's Chat in real time.
+Please refer to [PythMC](https://github.com/MrKelpy/PythMC) instead. It's a more complete, clean and intuitive library made by me, to replace MESL and PyMChat.
 
 ## Installation
 ```bash
